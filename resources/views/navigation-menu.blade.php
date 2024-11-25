@@ -1,24 +1,26 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 fixed h-[11vh] w-full backdrop-blur-sm bg-white/50">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="/">
-                        <x-application-mark class="block h-9 w-auto" />
-                    </a>
+                    <x-application-mark class="block h-9 w-auto" />
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('simulator') }}" :active="request()->routeIs('simulator')">
+                    <x-nav-link uri="{{ route('simulator') }}" :active="request()->routeIs('simulator')">
                         {{ __('Simulador') }}
+                    </x-nav-link>
+
+                    <x-nav-link :active="request()->routeIs('/')">
+                        {{ __('Página inicial') }}
                     </x-nav-link>
                 </div>
             </div>
 
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            <div class="hidden sm:flex sm:items-center sm:ms-6 relative">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ms-3 relative">

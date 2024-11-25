@@ -5,11 +5,16 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-turbidimeter />
-            </div>
-        </div>
-    </div>
+    <x-turbidimeter />
+    <x-painel-control></x-painel-control>
+
+    <x-slot name="specificScripts">
+        <script>
+            function updateTurbidityValue(rangeInputValue) {
+                const containerWithWater = document.getElementById("container-with-wather");
+                const decimalRepresentation = rangeInputValue / 100;
+                containerWithWater.style.backgroundColor = `rgba(191, 219, 254, ${decimalRepresentation})`;
+            }
+        </script>
+    </x-slot>
 </x-app-layout>

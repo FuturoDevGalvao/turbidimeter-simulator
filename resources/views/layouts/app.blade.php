@@ -22,8 +22,9 @@
 <body class="font-sans antialiased">
     <x-banner />
 
-    <div class="min-h-screen bg-gray-100">
-        @livewire('navigation-menu')
+    @livewire('navigation-menu')
+
+    <div class="min-h-screen flex flex-col w-full overflow-hidden pt-[11vh]">
 
         <!-- Page Heading -->
         @if (isset($header))
@@ -43,6 +44,10 @@
     @stack('modals')
 
     @livewireScripts
+
+    @if (isset($specificScripts))
+        {{ $specificScripts }}
+    @endif
 </body>
 
 </html>
