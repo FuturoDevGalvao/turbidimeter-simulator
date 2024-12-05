@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Turbidimeter - Seja Bem-vindo(a)!</title>
+    <title>{{ config('app.name') }} | Seja Bem-vindo(a)!</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         html {
@@ -52,10 +52,12 @@
                 <h1 class="text-3xl font-extrabold dark:text-gray-950">Entendendo o protótipo</h1>
 
                 <p>
-                    O LDR é um resistor dependente da luminosidade. Ele serve para projetos onde é necessário detectar o
-                    nível de luz ambiente, seja uma fotocélula para acionar uma lâmpada, detectar o nível de
-                    luminosidade para uma câmera e outras várias funções que dependam do nível de luz.
-                </p>
+                    O protótipo do sensor de turbidez desenvolvido funciona com base na interação entre um emissor de
+                    luz e um LDR (resistor dependente de luz), ambos conectados ao Arduino. O emissor de luz projeta um
+                    feixe sobre a amostra de água, e o LDR detecta a intensidade da luz que atravessa o líquido. O
+                    Arduino lê a variação da resistência do LDR, que é convertida em valores numéricos entre 0 e 1024.
+                    Valores acima de 800 indicam que a água é limpa, enquanto valores abaixo desse limite indicam a
+                    presença de partículas, classificando a água como suja. </p>
 
             </div>
             <div class="w-[50%] flex items-center justify-center">
